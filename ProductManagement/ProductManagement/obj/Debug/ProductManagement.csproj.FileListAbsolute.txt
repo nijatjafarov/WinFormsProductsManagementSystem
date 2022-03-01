@@ -1,0 +1,14 @@
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\ProductManagement.exe.config
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\ProductManagement.exe
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\ProductManagement.pdb
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.csproj.AssemblyReference.cache
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.Form1.resources
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.Properties.Resources.resources
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.csproj.GenerateResource.cache
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.csproj.CoreCompileInputs.cache
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.exe
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.pdb
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.BuyNewProductForm.resources
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.BuyExistingProductForm.resources
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.ReportForm.resources
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.SaleForm.resources
