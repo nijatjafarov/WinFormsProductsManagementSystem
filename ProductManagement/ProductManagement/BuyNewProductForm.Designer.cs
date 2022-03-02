@@ -162,6 +162,7 @@ namespace ProductManagement
             this.confirmButton.TabIndex = 4;
             this.confirmButton.Text = "Təsdiqlə";
             this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // BuyNewProductForm
             // 
@@ -183,6 +184,7 @@ namespace ProductManagement
             this.Controls.Add(this.productNameBox);
             this.Name = "BuyNewProductForm";
             this.Text = "Yeni məhsul alışı";
+            this.Load += new System.EventHandler(this.BuyNewProductForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

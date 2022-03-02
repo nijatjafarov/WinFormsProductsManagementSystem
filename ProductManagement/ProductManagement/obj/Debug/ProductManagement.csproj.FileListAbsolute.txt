@@ -12,3 +12,15 @@ C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManag
 C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.BuyExistingProductForm.resources
 C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.ReportForm.resources
 C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.SaleForm.resources
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\EntityFramework.dll
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\EntityFramework.xml
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.csproj.CopyComplete
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.LoginForm.resources
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\Database.mdf
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\Database_log.ldf
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\ProductManagement.exe.manifest
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\bin\Debug\ProductManagement.application
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.exe.manifest
+C:\Users\Nijat\Desktop\Products Management System\ProductManagement\ProductManagement\obj\Debug\ProductManagement.application

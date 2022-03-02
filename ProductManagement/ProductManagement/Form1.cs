@@ -43,5 +43,50 @@ namespace ProductManagement
             SaleForm saleForm = new SaleForm();
             saleForm.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'productsDataSet.Product' table. You can move, or remove it, as needed.
+            this.productTableAdapter.Fill(this.productsDataSet.Product);
+
+        }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchValue = searchBox.Text;
+
+            productList.CurrentCell = null;
+
+            for (int i = 0; i < productList.Rows.Count-1; i++)
+            {
+                if (productList.Rows[i].Cells[0].Value.ToString().Contains(searchValue))
+                {
+                    productList.Rows[i].Visible = true;
+                }
+                else
+                {
+                    productList.Rows[i].Visible = false;
+                }
+            }
+        }
+
+        public string selectedProduct = "";
+
+        private void productList_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            LoginForm loginForm = new LoginForm(productList.SelectedRows[0], "update");
+            loginForm.Show();
+        }
+
+        private void productList_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            deleteProducts.Enabled = true;
+        }
+
+        private void deleteProducts_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm(productList.SelectedRows[0], "delete");
+            loginForm.Show();
+        }
     }
 }

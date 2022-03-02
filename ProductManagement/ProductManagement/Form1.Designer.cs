@@ -29,13 +29,26 @@ namespace ProductManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.reportButton = new System.Windows.Forms.Button();
             this.saleButton = new System.Windows.Forms.Button();
             this.buyButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productList = new System.Windows.Forms.DataGridView();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleOrRentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.measurementUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.measureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buyingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productsDataSet = new ProductManagement.ProductsDataSet();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.productTableAdapter = new ProductManagement.ProductsDataSetTableAdapters.ProductTableAdapter();
+            this.deleteProducts = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.productList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // reportButton
@@ -74,16 +87,86 @@ namespace ProductManagement
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(315, 31);
             this.searchBox.TabIndex = 3;
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
-            // dataGridView1
+            // productList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(76, 183);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1283, 629);
-            this.dataGridView1.TabIndex = 4;
+            this.productList.AutoGenerateColumns = false;
+            this.productList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productNameDataGridViewTextBoxColumn,
+            this.saleOrRentDataGridViewTextBoxColumn,
+            this.measurementUnitDataGridViewTextBoxColumn,
+            this.measureDataGridViewTextBoxColumn,
+            this.buyingPriceDataGridViewTextBoxColumn,
+            this.salePriceDataGridViewTextBoxColumn});
+            this.productList.DataSource = this.productBindingSource;
+            this.productList.Location = new System.Drawing.Point(76, 183);
+            this.productList.Name = "productList";
+            this.productList.RowHeadersWidth = 82;
+            this.productList.RowTemplate.Height = 33;
+            this.productList.Size = new System.Drawing.Size(1283, 629);
+            this.productList.TabIndex = 4;
+            this.productList.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.productList_RowHeaderMouseClick);
+            this.productList.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.productList_RowHeaderMouseDoubleClick);
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Malın adı";
+            this.productNameDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // saleOrRentDataGridViewTextBoxColumn
+            // 
+            this.saleOrRentDataGridViewTextBoxColumn.DataPropertyName = "SaleOrRent";
+            this.saleOrRentDataGridViewTextBoxColumn.HeaderText = "Satış/İcarə";
+            this.saleOrRentDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.saleOrRentDataGridViewTextBoxColumn.Name = "saleOrRentDataGridViewTextBoxColumn";
+            this.saleOrRentDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // measurementUnitDataGridViewTextBoxColumn
+            // 
+            this.measurementUnitDataGridViewTextBoxColumn.DataPropertyName = "MeasurementUnit";
+            this.measurementUnitDataGridViewTextBoxColumn.HeaderText = "Ölçü vahidi";
+            this.measurementUnitDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.measurementUnitDataGridViewTextBoxColumn.Name = "measurementUnitDataGridViewTextBoxColumn";
+            this.measurementUnitDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // measureDataGridViewTextBoxColumn
+            // 
+            this.measureDataGridViewTextBoxColumn.DataPropertyName = "Measure";
+            this.measureDataGridViewTextBoxColumn.HeaderText = "Miqdar";
+            this.measureDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.measureDataGridViewTextBoxColumn.Name = "measureDataGridViewTextBoxColumn";
+            this.measureDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // buyingPriceDataGridViewTextBoxColumn
+            // 
+            this.buyingPriceDataGridViewTextBoxColumn.DataPropertyName = "BuyingPrice";
+            this.buyingPriceDataGridViewTextBoxColumn.HeaderText = "Alış qiyməti";
+            this.buyingPriceDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.buyingPriceDataGridViewTextBoxColumn.Name = "buyingPriceDataGridViewTextBoxColumn";
+            this.buyingPriceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // salePriceDataGridViewTextBoxColumn
+            // 
+            this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "SalePrice";
+            this.salePriceDataGridViewTextBoxColumn.HeaderText = "Satış qiyməti";
+            this.salePriceDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
+            this.salePriceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataMember = "Product";
+            this.productBindingSource.DataSource = this.productsDataSet;
+            // 
+            // productsDataSet
+            // 
+            this.productsDataSet.DataSetName = "ProductsDataSet";
+            this.productsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label3
             // 
@@ -94,20 +177,39 @@ namespace ProductManagement
             this.label3.TabIndex = 6;
             this.label3.Text = "Mallar üzrə axtarış et";
             // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // deleteProducts
+            // 
+            this.deleteProducts.Enabled = false;
+            this.deleteProducts.Location = new System.Drawing.Point(552, 71);
+            this.deleteProducts.Name = "deleteProducts";
+            this.deleteProducts.Size = new System.Drawing.Size(248, 46);
+            this.deleteProducts.TabIndex = 2;
+            this.deleteProducts.Text = "Seçilmiş məhsulları sil";
+            this.deleteProducts.UseVisualStyleBackColor = true;
+            this.deleteProducts.Click += new System.EventHandler(this.deleteProducts_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1435, 890);
+            this.ClientSize = new System.Drawing.Size(1435, 950);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.productList);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.buyButton);
             this.Controls.Add(this.saleButton);
+            this.Controls.Add(this.deleteProducts);
             this.Controls.Add(this.reportButton);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,8 +220,18 @@ namespace ProductManagement
         private System.Windows.Forms.Button saleButton;
         private System.Windows.Forms.Button buyButton;
         private System.Windows.Forms.TextBox searchBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView productList;
         private System.Windows.Forms.Label label3;
+        private ProductsDataSet productsDataSet;
+        private System.Windows.Forms.BindingSource productBindingSource;
+        private ProductsDataSetTableAdapters.ProductTableAdapter productTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saleOrRentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn measurementUnitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn measureDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn buyingPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salePriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button deleteProducts;
     }
 }
 

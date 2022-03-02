@@ -30,19 +30,19 @@ namespace ProductManagement
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.monthlyReports = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dailyReports = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monthlyReports)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dailyReports)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,20 +54,20 @@ namespace ProductManagement
             this.label1.TabIndex = 0;
             this.label1.Text = "Aylar üzrə ümumi hesabat";
             // 
-            // dataGridView1
+            // monthlyReports
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.monthlyReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.monthlyReports.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(69, 100);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(885, 275);
-            this.dataGridView1.TabIndex = 1;
+            this.monthlyReports.Location = new System.Drawing.Point(69, 100);
+            this.monthlyReports.Name = "monthlyReports";
+            this.monthlyReports.RowHeadersWidth = 82;
+            this.monthlyReports.RowTemplate.Height = 33;
+            this.monthlyReports.Size = new System.Drawing.Size(885, 275);
+            this.monthlyReports.TabIndex = 1;
             // 
             // Column1
             // 
@@ -106,20 +106,20 @@ namespace ProductManagement
             this.label2.TabIndex = 0;
             this.label2.Text = "Son ayın günləri üzrə hesabat";
             // 
-            // dataGridView2
+            // dailyReports
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dailyReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dailyReports.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dataGridView2.Location = new System.Drawing.Point(69, 500);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 82;
-            this.dataGridView2.RowTemplate.Height = 33;
-            this.dataGridView2.Size = new System.Drawing.Size(885, 275);
-            this.dataGridView2.TabIndex = 1;
+            this.dailyReports.Location = new System.Drawing.Point(69, 500);
+            this.dailyReports.Name = "dailyReports";
+            this.dailyReports.RowHeadersWidth = 82;
+            this.dailyReports.RowTemplate.Height = 33;
+            this.dailyReports.Size = new System.Drawing.Size(885, 275);
+            this.dailyReports.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -154,14 +154,15 @@ namespace ProductManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 843);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dailyReports);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.monthlyReports);
             this.Controls.Add(this.label1);
             this.Name = "ReportForm";
             this.Text = "Hesabat";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.ReportForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.monthlyReports)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dailyReports)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,13 +171,13 @@ namespace ProductManagement
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView monthlyReports;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dailyReports;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
