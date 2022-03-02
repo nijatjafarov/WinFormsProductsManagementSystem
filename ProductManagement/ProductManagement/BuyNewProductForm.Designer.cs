@@ -182,6 +182,8 @@ namespace ProductManagement
             this.Controls.Add(this.buyPriceBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.productNameBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "BuyNewProductForm";
             this.Text = "Yeni məhsul alışı";
             this.Load += new System.EventHandler(this.BuyNewProductForm_Load);

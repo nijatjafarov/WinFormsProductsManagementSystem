@@ -286,8 +286,10 @@ namespace ProductManagement
             this.Controls.Add(this.productsBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SaleForm";
-            this.Text = "SaleForm";
+            this.Text = "Satış";
             this.Load += new System.EventHandler(this.SaleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet1)).EndInit();

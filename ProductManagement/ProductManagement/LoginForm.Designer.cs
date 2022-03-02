@@ -89,6 +89,8 @@ namespace ProductManagement
             this.Controls.Add(this.usernameBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.ResumeLayout(false);

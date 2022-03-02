@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -56,6 +57,10 @@ namespace ProductManagement
                         }
                         this.Close();
                     }
+
+                    Form1 form = new Form1();
+                    form.Show();
+                    Application.OpenForms["Form1"].Close();
                 }
                 else
                 {

@@ -67,7 +67,7 @@ namespace ProductManagement
                         }
                         else
                         {
-                            report.BuyAmount = buyingPrice * measure;
+                            report.BuyAmount += buyingPrice * measure;
                         }
 
                         db.Products.Add(product);
@@ -77,6 +77,10 @@ namespace ProductManagement
 
 
                     this.Close();
+
+                    Form1 form = new Form1();
+                    form.Show();
+                    Application.OpenForms["Form1"].Close();
                 }
             }
             else

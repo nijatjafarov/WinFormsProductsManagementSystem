@@ -52,6 +52,10 @@ namespace ProductManagement
                         db.SaveChanges();
                     };
                     this.Close();
+
+                    Form1 form = new Form1();
+                    form.Show();
+                    Application.OpenForms["Form1"].Close();
                 }
             }
             else

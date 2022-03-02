@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="ProductManagement.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="ProductManagement.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="ProductManagement" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ProductManagement.exe" size="115680">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ProductManagement.exe" size="116192">
       <assemblyIdentity name="ProductManagement" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Y/1luoO2lsNzHR+PFQ1D2ngT0QbbPnZQAE8oFosBJwM=</dsig:DigestValue>
+        <dsig:DigestValue>FKEOZKraspPYgjUcQNB5u8TVMvcyYUVxnXtMy2Ghwtc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -101,7 +101,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>B97T5ADE8BfL+iITLC5QDu2c58xbksYwofoJTl0IcmU=</dsig:DigestValue>
+      <dsig:DigestValue>mBERcMbHu7Ou9ibcY0RHe4Ooyd7orfF8/PYdnWEW1oU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Database_log.ldf" size="8388608" writeableType="applicationData">
@@ -110,7 +110,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+XUXUGrkEoHQR2y1PjOo384dy+hcpvU1cM+GIf4W4NA=</dsig:DigestValue>
+      <dsig:DigestValue>zB86tfeT/dQES9nTRkt6GCzM5WGSgNSwWtncCC0G67I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ProductManagement.exe.config" size="1650">

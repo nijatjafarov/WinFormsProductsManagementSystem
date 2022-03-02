@@ -32,14 +32,14 @@ namespace ProductManagement
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.productsBox = new System.Windows.Forms.ComboBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet = new ProductManagement.DatabaseDataSet();
             this.label2 = new System.Windows.Forms.Label();
             this.measureBox = new System.Windows.Forms.TextBox();
             this.confirmButton = new System.Windows.Forms.Button();
-            this.databaseDataSet = new ProductManagement.DatabaseDataSet();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productTableAdapter = new ProductManagement.DatabaseDataSetTableAdapters.ProductTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,6 +62,16 @@ namespace ProductManagement
             this.productsBox.Size = new System.Drawing.Size(219, 33);
             this.productsBox.TabIndex = 1;
             this.productsBox.ValueMember = "ProductName";
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataMember = "Product";
+            this.productBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // databaseDataSet
+            // 
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -89,16 +99,6 @@ namespace ProductManagement
             this.confirmButton.UseVisualStyleBackColor = true;
             this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
-            // databaseDataSet
-            // 
-            this.databaseDataSet.DataSetName = "DatabaseDataSet";
-            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.databaseDataSet;
-            // 
             // productTableAdapter
             // 
             this.productTableAdapter.ClearBeforeFill = true;
@@ -113,11 +113,13 @@ namespace ProductManagement
             this.Controls.Add(this.label2);
             this.Controls.Add(this.productsBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "BuyExistingProductForm";
             this.Text = "Mövcud məhsul alışı";
             this.Load += new System.EventHandler(this.BuyExistingProductForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

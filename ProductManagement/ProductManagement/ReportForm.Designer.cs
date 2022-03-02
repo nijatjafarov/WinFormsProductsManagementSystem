@@ -151,13 +151,17 @@ namespace ProductManagement
             // 
             // ReportForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1024, 843);
             this.Controls.Add(this.dailyReports);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.monthlyReports);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(30, 918);
             this.Name = "ReportForm";
             this.Text = "Hesabat";
             this.Load += new System.EventHandler(this.ReportForm_Load);

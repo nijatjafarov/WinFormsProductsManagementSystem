@@ -194,9 +194,10 @@ namespace ProductManagement
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1435, 950);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1435, 979);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.productList);
             this.Controls.Add(this.searchBox);
@@ -204,8 +205,11 @@ namespace ProductManagement
             this.Controls.Add(this.saleButton);
             this.Controls.Add(this.deleteProducts);
             this.Controls.Add(this.reportButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Məhsulları idarə etmə proqramı";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
