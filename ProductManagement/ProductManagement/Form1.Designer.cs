@@ -30,6 +30,7 @@ namespace ProductManagement
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.reportButton = new System.Windows.Forms.Button();
             this.saleButton = new System.Windows.Forms.Button();
             this.buyButton = new System.Windows.Forms.Button();
@@ -53,7 +54,7 @@ namespace ProductManagement
             // 
             // reportButton
             // 
-            this.reportButton.Location = new System.Drawing.Point(865, 71);
+            this.reportButton.Location = new System.Drawing.Point(865, 84);
             this.reportButton.Name = "reportButton";
             this.reportButton.Size = new System.Drawing.Size(121, 46);
             this.reportButton.TabIndex = 2;
@@ -63,7 +64,7 @@ namespace ProductManagement
             // 
             // saleButton
             // 
-            this.saleButton.Location = new System.Drawing.Point(1052, 71);
+            this.saleButton.Location = new System.Drawing.Point(1052, 84);
             this.saleButton.Name = "saleButton";
             this.saleButton.Size = new System.Drawing.Size(121, 46);
             this.saleButton.TabIndex = 2;
@@ -73,7 +74,7 @@ namespace ProductManagement
             // 
             // buyButton
             // 
-            this.buyButton.Location = new System.Drawing.Point(1238, 71);
+            this.buyButton.Location = new System.Drawing.Point(1238, 84);
             this.buyButton.Name = "buyButton";
             this.buyButton.Size = new System.Drawing.Size(121, 46);
             this.buyButton.TabIndex = 2;
@@ -83,7 +84,7 @@ namespace ProductManagement
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(76, 98);
+            this.searchBox.Location = new System.Drawing.Point(76, 92);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(315, 31);
             this.searchBox.TabIndex = 3;
@@ -101,8 +102,9 @@ namespace ProductManagement
             this.buyingPriceDataGridViewTextBoxColumn,
             this.salePriceDataGridViewTextBoxColumn});
             this.productList.DataSource = this.productBindingSource;
-            this.productList.Location = new System.Drawing.Point(76, 183);
+            this.productList.Location = new System.Drawing.Point(76, 181);
             this.productList.Name = "productList";
+            this.productList.ReadOnly = true;
             this.productList.RowHeadersWidth = 82;
             this.productList.RowTemplate.Height = 33;
             this.productList.Size = new System.Drawing.Size(1283, 629);
@@ -116,6 +118,7 @@ namespace ProductManagement
             this.productNameDataGridViewTextBoxColumn.HeaderText = "Malın adı";
             this.productNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.productNameDataGridViewTextBoxColumn.Width = 200;
             // 
             // saleOrRentDataGridViewTextBoxColumn
@@ -124,6 +127,7 @@ namespace ProductManagement
             this.saleOrRentDataGridViewTextBoxColumn.HeaderText = "Satış/İcarə";
             this.saleOrRentDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.saleOrRentDataGridViewTextBoxColumn.Name = "saleOrRentDataGridViewTextBoxColumn";
+            this.saleOrRentDataGridViewTextBoxColumn.ReadOnly = true;
             this.saleOrRentDataGridViewTextBoxColumn.Width = 200;
             // 
             // measurementUnitDataGridViewTextBoxColumn
@@ -132,6 +136,7 @@ namespace ProductManagement
             this.measurementUnitDataGridViewTextBoxColumn.HeaderText = "Ölçü vahidi";
             this.measurementUnitDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.measurementUnitDataGridViewTextBoxColumn.Name = "measurementUnitDataGridViewTextBoxColumn";
+            this.measurementUnitDataGridViewTextBoxColumn.ReadOnly = true;
             this.measurementUnitDataGridViewTextBoxColumn.Width = 200;
             // 
             // measureDataGridViewTextBoxColumn
@@ -140,6 +145,7 @@ namespace ProductManagement
             this.measureDataGridViewTextBoxColumn.HeaderText = "Miqdar";
             this.measureDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.measureDataGridViewTextBoxColumn.Name = "measureDataGridViewTextBoxColumn";
+            this.measureDataGridViewTextBoxColumn.ReadOnly = true;
             this.measureDataGridViewTextBoxColumn.Width = 200;
             // 
             // buyingPriceDataGridViewTextBoxColumn
@@ -148,6 +154,7 @@ namespace ProductManagement
             this.buyingPriceDataGridViewTextBoxColumn.HeaderText = "Alış qiyməti";
             this.buyingPriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.buyingPriceDataGridViewTextBoxColumn.Name = "buyingPriceDataGridViewTextBoxColumn";
+            this.buyingPriceDataGridViewTextBoxColumn.ReadOnly = true;
             this.buyingPriceDataGridViewTextBoxColumn.Width = 200;
             // 
             // salePriceDataGridViewTextBoxColumn
@@ -156,6 +163,7 @@ namespace ProductManagement
             this.salePriceDataGridViewTextBoxColumn.HeaderText = "Satış qiyməti";
             this.salePriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
+            this.salePriceDataGridViewTextBoxColumn.ReadOnly = true;
             this.salePriceDataGridViewTextBoxColumn.Width = 200;
             // 
             // productBindingSource
@@ -171,7 +179,7 @@ namespace ProductManagement
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 54);
+            this.label3.Location = new System.Drawing.Point(71, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(213, 25);
             this.label3.TabIndex = 6;
@@ -184,7 +192,7 @@ namespace ProductManagement
             // deleteProducts
             // 
             this.deleteProducts.Enabled = false;
-            this.deleteProducts.Location = new System.Drawing.Point(552, 71);
+            this.deleteProducts.Location = new System.Drawing.Point(552, 84);
             this.deleteProducts.Name = "deleteProducts";
             this.deleteProducts.Size = new System.Drawing.Size(248, 46);
             this.deleteProducts.TabIndex = 2;
@@ -197,7 +205,7 @@ namespace ProductManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1435, 979);
+            this.ClientSize = new System.Drawing.Size(1435, 884);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.productList);
             this.Controls.Add(this.searchBox);
@@ -206,11 +214,13 @@ namespace ProductManagement
             this.Controls.Add(this.deleteProducts);
             this.Controls.Add(this.reportButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Məhsulları idarə etmə proqramı";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataSet)).EndInit();

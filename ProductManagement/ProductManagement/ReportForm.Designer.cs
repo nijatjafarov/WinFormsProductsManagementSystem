@@ -29,6 +29,7 @@ namespace ProductManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportForm));
             this.label1 = new System.Windows.Forms.Label();
             this.monthlyReports = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,10 +161,12 @@ namespace ProductManagement
             this.Controls.Add(this.monthlyReports);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(30, 918);
             this.Name = "ReportForm";
             this.Text = "Hesabat";
+            this.Activated += new System.EventHandler(this.ReportForm_Activated);
             this.Load += new System.EventHandler(this.ReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.monthlyReports)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dailyReports)).EndInit();

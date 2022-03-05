@@ -27,8 +27,9 @@ namespace ProductManagement
                 "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr" };
             using (DatabaseEntities db = new DatabaseEntities())
             {
+                IList<Report> reports = db.Reports.ToList<Report>();
 
-                foreach (var report in db.Reports)
+                foreach (Report report in reports)
                 {
                     if (report.Date.Year == DateTime.Now.Year)
                     {
@@ -129,6 +130,11 @@ namespace ProductManagement
                 monthlyReports.Rows.Add(monthlyRow);
             }
             
+        }
+
+        private void ReportForm_Activated(object sender, EventArgs e)
+        {
+            this.Size = new Size(1054 / 2, 918 / 2);
         }
     }
 }

@@ -40,22 +40,21 @@ namespace ProductManagement
                         if (report == null)
                         {
                             report = new Report();
+                            report.Date = date;
+                            report.Benefit = 0;
+                            report.SaleAmount = 0;
                             report.BuyAmount = product.BuyingPrice*measure;
 
                             db.Reports.Add(report);
                         }
                         else
                         {
-                            report.BuyAmount = product.BuyingPrice * measure;
+                            report.BuyAmount += product.BuyingPrice * measure;
                         }
                         
                         db.SaveChanges();
                     };
                     this.Close();
-
-                    Form1 form = new Form1();
-                    form.Show();
-                    Application.OpenForms["Form1"].Close();
                 }
             }
             else

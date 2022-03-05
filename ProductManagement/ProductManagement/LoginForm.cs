@@ -14,17 +14,17 @@ namespace ProductManagement
 {
     public partial class LoginForm : Form
     {
-        DataGridViewRow row = null;
+        DataGridViewSelectedRowCollection rows = null;
         string task = "";
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        public LoginForm(DataGridViewRow _row, string _task)
+        public LoginForm(DataGridViewSelectedRowCollection _rows, string _task)
         {
             InitializeComponent();
-            row = _row;
+            rows = _rows;
             task = _task;
         }
 
@@ -37,7 +37,7 @@ namespace ProductManagement
                 {
                     if (task == "update")
                     {
-                        Form updateForm = new BuyNewProductForm(row);
+                        Form updateForm = new BuyNewProductForm(rows[0]);
                         updateForm.Text = "Məhsul məlumatlarını redaktə et";
                         updateForm.Show();
                         this.Close();
@@ -46,21 +46,20 @@ namespace ProductManagement
                     {
                         using (DatabaseEntities db = new DatabaseEntities())
                         {
-                            string productName = row.Cells[0].Value.ToString();
-                            Product product = db.Products.Where(p => p.ProductName == productName).
-                                FirstOrDefault();
-                            if (product != null)
+                            foreach (DataGridViewRow row in rows)
                             {
-                                db.Products.Remove(product);
-                                db.SaveChanges();
+                                string productName = row.Cells[0].Value.ToString();
+                                Product product = db.Products.Where(p => p.ProductName == productName).
+                                    FirstOrDefault();
+                                if (product != null)
+                                {
+                                    db.Products.Remove(product);
+                                }
                             }
+                            db.SaveChanges();
                         }
                         this.Close();
                     }
-
-                    Form1 form = new Form1();
-                    form.Show();
-                    Application.OpenForms["Form1"].Close();
                 }
                 else
                 {

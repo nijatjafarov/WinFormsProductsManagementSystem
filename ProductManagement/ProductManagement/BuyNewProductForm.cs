@@ -14,6 +14,7 @@ namespace ProductManagement
     public partial class BuyNewProductForm : Form
     {
         DataGridViewRow row = null;
+        int id = 0;
         public BuyNewProductForm()
         {
             InitializeComponent();
@@ -23,6 +24,16 @@ namespace ProductManagement
         {
             InitializeComponent();
             row = _row;
+            using (DatabaseEntities db = new DatabaseEntities())
+            {
+                string productName = row.Cells[0].Value.ToString();
+                Product product = db.Products.Where(p => p.ProductName == productName).
+                    FirstOrDefault();
+                if (product != null)
+                {
+                    id = product.Id;
+                }
+            };
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -38,49 +49,83 @@ namespace ProductManagement
                 saleRentBox.Text != "" &&
                 measureTypeBox.Text != "")
             {
-                DialogResult dialogResult = MessageBox.Show("Məhsulu anbara əlavə etmək istədiyinizə əminsiniz?", "Məhsul alışı", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if (id != 0)
                 {
-                    DateTime date = DateTime.Now.Date;
-
                     using (DatabaseEntities db = new DatabaseEntities())
                     {
-                        Product product = new Product()
+                        if ((db.Products.Where(p => p.ProductName == productNameBox.Text).Count() == 1 &&
+                            db.Products.Where(p => p.ProductName == productNameBox.Text).FirstOrDefault().Id == id) ||
+                            (db.Products.Where(p => p.ProductName == productNameBox.Text).Count()  == 0))
                         {
-                            ProductName = productNameBox.Text,
-                            SaleOrRent = saleRentBox.Text,
-                            MeasurementUnit = measureTypeBox.Text,
-                            Measure = measure,
-                            BuyingPrice = buyingPrice,
-                            SalePrice = salePrice
-                        };
+                            Product product = db.Products.Find(id);
+                            product.ProductName = productNameBox.Text;
+                            product.SaleOrRent = saleRentBox.Text;
+                            product.MeasurementUnit = measureTypeBox.Text;
+                            product.Measure = measure;
+                            product.BuyingPrice = buyingPrice;
+                            product.SalePrice = salePrice;
 
-                        Report report = db.Reports.Where(r => r.Date == date).FirstOrDefault();
-
-
-                        if (report == null)
-                        {
-                            report = new Report();
-                            report.BuyAmount = buyingPrice * measure;
-
-                            db.Reports.Add(report);
+                            db.SaveChanges();
+                            MessageBox.Show("Dəyişiklər qeyd olundu!");
+                            this.Close();
                         }
                         else
                         {
-                            report.BuyAmount += buyingPrice * measure;
+                            MessageBox.Show("Bu adda məhsul mövcuddur!");
                         }
+                    }
+                }
+                else
+                {
+                    using (DatabaseEntities db = new DatabaseEntities())
+                    {
+                        if (db.Products.Where(p => p.ProductName == productNameBox.Text).FirstOrDefault() == null)
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Məhsulu anbara əlavə etmək istədiyinizə əminsiniz?", "Məhsul alışı", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                DateTime date = DateTime.Now.Date;
 
-                        db.Products.Add(product);
-                        
-                        db.SaveChanges();
-                    };
+
+                                Product product = new Product()
+                                {
+                                    ProductName = productNameBox.Text,
+                                    SaleOrRent = saleRentBox.Text,
+                                    MeasurementUnit = measureTypeBox.Text,
+                                    Measure = measure,
+                                    BuyingPrice = buyingPrice,
+                                    SalePrice = salePrice
+                                };
+
+                                Report report = db.Reports.Where(r => r.Date == date).FirstOrDefault();
 
 
-                    this.Close();
+                                if (report == null)
+                                {
+                                    report = new Report();
+                                    report.Date = date;
+                                    report.Benefit = 0;
+                                    report.SaleAmount = 0;
+                                    report.BuyAmount = buyingPrice * measure;
 
-                    Form1 form = new Form1();
-                    form.Show();
-                    Application.OpenForms["Form1"].Close();
+                                    db.Reports.Add(report);
+                                }
+                                else
+                                {
+                                    report.BuyAmount += buyingPrice * measure;
+                                }
+
+                                db.Products.Add(product);
+
+                                db.SaveChanges();
+                            }
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bu adda məhsul mövcuddur!");
+                        }
+                    }
                 }
             }
             else

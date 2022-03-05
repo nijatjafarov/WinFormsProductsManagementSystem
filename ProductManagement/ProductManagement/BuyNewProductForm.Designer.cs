@@ -29,6 +29,7 @@ namespace ProductManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyNewProductForm));
             this.productNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.measureTypeBox = new System.Windows.Forms.ComboBox();
@@ -183,6 +184,7 @@ namespace ProductManagement
             this.Controls.Add(this.label1);
             this.Controls.Add(this.productNameBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "BuyNewProductForm";
             this.Text = "Yeni məhsul alışı";

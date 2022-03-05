@@ -10,8 +10,8 @@ using System.Windows.Forms;
 
 namespace ProductManagement
 {
-    public partial class Form1 : Form
-    {
+    public partial class Form1 : Form 
+    { 
         public Form1()
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace ProductManagement
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'productsDataSet.Product' table. You can move, or remove it, as needed.
-            this.productTableAdapter.Fill(this.productsDataSet.Product);
+            
 
         }
 
@@ -74,7 +74,7 @@ namespace ProductManagement
 
         private void productList_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            LoginForm loginForm = new LoginForm(productList.SelectedRows[0], "update");
+            LoginForm loginForm = new LoginForm(productList.SelectedRows, "update");
             loginForm.Show();
         }
 
@@ -85,8 +85,43 @@ namespace ProductManagement
 
         private void deleteProducts_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm(productList.SelectedRows[0], "delete");
-            loginForm.Show();
+            try
+            {
+                LoginForm loginForm = new LoginForm(productList.SelectedRows, "delete");
+                loginForm.Show();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Məlumatda problem var");
+            }
+                
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            Application.DoEvents();
+            this.Invalidate();
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            if (productList.SelectedRows.Count == 1)
+            {
+                deleteProducts.Enabled = true;
+            }
+            else
+            {
+                deleteProducts.Enabled = false;
+            }
+            this.Size = new Size(1461/2, 955/2);
+            this.productTableAdapter.Fill(this.productsDataSet.Product);
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            productList.Width = this.Size.Width - 90;
+            productList.Height = this.Size.Height - 170;
         }
     }
 }

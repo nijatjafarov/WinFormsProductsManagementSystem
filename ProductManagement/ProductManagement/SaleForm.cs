@@ -27,12 +27,23 @@ namespace ProductManagement
 
         private void addOrderBtn_Click(object sender, EventArgs e)
         {
+            confirmButton.Enabled = false;
+
             float measure = 0;
             float salePrice = 0;
 
             using (DatabaseEntities db = new DatabaseEntities())
             {
-                Product product = db.Products.Where(p => p.ProductName == productsBox.Text).First();
+                Product product = null;
+                try
+                {
+                    product = db.Products.Where(p => p.ProductName == productsBox.Text).First();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Belə məhsul mövcud deyil!");
+                }
+                
 
                 bool measureParse = float.TryParse(measureBox.Text, out measure);
 
@@ -70,6 +81,7 @@ namespace ProductManagement
 
         private void removeOrderBtn_Click(object sender, EventArgs e)
         {
+            confirmButton.Enabled = false;
 
             foreach (DataGridViewRow row in orderList.SelectedRows)
             {
@@ -82,7 +94,8 @@ namespace ProductManagement
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
-            
+            total = 0;
+            totalBenefit = 0;
 
             for (int i = 0; i < orderList.Rows.Count-1; i++)
             {
@@ -112,8 +125,10 @@ namespace ProductManagement
                     if (report == null)
                     {
                         report = new Report();
+                        report.Date = date;
                         report.Benefit = totalBenefit;
                         report.SaleAmount = total;
+                        report.BuyAmount = 0;
 
                         db.Reports.Add(report);
                     }
@@ -142,6 +157,11 @@ namespace ProductManagement
 
                 this.Close();
             }
+        }
+
+        private void SaleForm_Activated(object sender, EventArgs e)
+        {
+            this.Size = new Size(1045 / 2, 953 / 2);
         }
     }
 }

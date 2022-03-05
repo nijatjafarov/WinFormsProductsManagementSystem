@@ -30,6 +30,7 @@ namespace ProductManagement
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleForm));
             this.label1 = new System.Windows.Forms.Label();
             this.productsBox = new System.Windows.Forms.ComboBox();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -192,6 +193,7 @@ namespace ProductManagement
             this.Column5});
             this.orderList.Location = new System.Drawing.Point(101, 331);
             this.orderList.Name = "orderList";
+            this.orderList.ReadOnly = true;
             this.orderList.RowHeadersWidth = 82;
             this.orderList.RowTemplate.Height = 33;
             this.orderList.Size = new System.Drawing.Size(828, 337);
@@ -202,6 +204,7 @@ namespace ProductManagement
             this.Column1.HeaderText = "Məhsulun adı";
             this.Column1.MinimumWidth = 10;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 200;
             // 
             // Column2
@@ -209,6 +212,7 @@ namespace ProductManagement
             this.Column2.HeaderText = "Miqdar";
             this.Column2.MinimumWidth = 10;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 200;
             // 
             // Column3
@@ -216,6 +220,7 @@ namespace ProductManagement
             this.Column3.HeaderText = "Vahid üzrə qiymət";
             this.Column3.MinimumWidth = 10;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Width = 200;
             // 
             // Column4
@@ -223,6 +228,7 @@ namespace ProductManagement
             this.Column4.HeaderText = "Ümumi qiymət";
             this.Column4.MinimumWidth = 10;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 200;
             // 
             // Column5
@@ -230,6 +236,7 @@ namespace ProductManagement
             this.Column5.HeaderText = "Xeyir";
             this.Column5.MinimumWidth = 10;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             this.Column5.Width = 200;
             // 
             // label5
@@ -287,9 +294,11 @@ namespace ProductManagement
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SaleForm";
             this.Text = "Satış";
+            this.Activated += new System.EventHandler(this.SaleForm_Activated);
             this.Load += new System.EventHandler(this.SaleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet1)).EndInit();
