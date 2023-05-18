@@ -15,7 +15,9 @@ namespace ProductManagement
     public partial class LoginForm : Form
     {
         DataGridViewSelectedRowCollection rows = null;
-        string task = "";
+        DataGridViewRow row = null;
+        Report report = null;
+        string task = null;
         public LoginForm()
         {
             InitializeComponent();
@@ -26,6 +28,13 @@ namespace ProductManagement
             InitializeComponent();
             rows = _rows;
             task = _task;
+        }
+
+        public LoginForm(Report _report, DataGridViewRow _row)
+        {
+            InitializeComponent();
+            report = _report;
+            row = _row;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -59,6 +68,33 @@ namespace ProductManagement
                             db.SaveChanges();
                         }
                         this.Close();
+                    }
+                    if (report != null & row != null)
+                    {
+                        using (DatabaseEntities db = new DatabaseEntities())
+                        {
+                            Report updatedReport = db.Reports.Find(report.Id);
+                            double buy;
+                            double sale;
+                            double benefit;
+
+                            if(double.TryParse(row.Cells[1].Value.ToString(), out buy))
+                            {
+                                updatedReport.BuyAmount = Math.Round(buy, 2);
+                            }
+                            if (double.TryParse(row.Cells[2].Value.ToString(), out sale))
+                            {
+                                updatedReport.SaleAmount = Math.Round(sale, 2);
+                            }
+                            if (double.TryParse(row.Cells[3].Value.ToString(), out benefit))
+                            {
+                                updatedReport.Benefit = Math.Round(benefit, 2);
+                            }
+                            db.SaveChanges();
+                        }
+                        MessageBox.Show("Dəyişiklər qeyd olundu! Görmək üçün hesabata yenidən daxil olun!");
+                        this.Close();
+                        Application.OpenForms["ReportForm"].Close();
                     }
                 }
                 else

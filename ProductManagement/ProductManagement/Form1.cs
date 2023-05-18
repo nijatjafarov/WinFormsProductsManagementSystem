@@ -1,8 +1,11 @@
-﻿using System;
+﻿using ProductManagement.App_Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,20 +49,17 @@ namespace ProductManagement
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'productsDataSet.Product' table. You can move, or remove it, as needed.
-            
-
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-            string searchValue = searchBox.Text;
+            string searchValue = searchBox.Text.ToLower();
 
             productList.CurrentCell = null;
 
             for (int i = 0; i < productList.Rows.Count-1; i++)
             {
-                if (productList.Rows[i].Cells[0].Value.ToString().Contains(searchValue))
+                if (productList.Rows[i].Cells[0].Value.ToString().ToLower().Contains(searchValue))
                 {
                     productList.Rows[i].Visible = true;
                 }
@@ -122,6 +122,12 @@ namespace ProductManagement
         {
             productList.Width = this.Size.Width - 90;
             productList.Height = this.Size.Height - 170;
+        }
+
+        private void backUpButton_Click(object sender, EventArgs e)
+        {
+            BackupForm backupForm = new BackupForm();
+            backupForm.Show();
         }
     }
 }

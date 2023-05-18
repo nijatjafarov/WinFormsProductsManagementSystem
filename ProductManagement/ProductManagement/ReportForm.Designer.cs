@@ -65,6 +65,7 @@ namespace ProductManagement
             this.Column4});
             this.monthlyReports.Location = new System.Drawing.Point(69, 100);
             this.monthlyReports.Name = "monthlyReports";
+            this.monthlyReports.ReadOnly = true;
             this.monthlyReports.RowHeadersWidth = 82;
             this.monthlyReports.RowTemplate.Height = 33;
             this.monthlyReports.Size = new System.Drawing.Size(885, 275);
@@ -75,6 +76,7 @@ namespace ProductManagement
             this.Column1.HeaderText = "Tarix";
             this.Column1.MinimumWidth = 10;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 200;
             // 
             // Column2
@@ -82,6 +84,7 @@ namespace ProductManagement
             this.Column2.HeaderText = "Alış tutarı";
             this.Column2.MinimumWidth = 10;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 200;
             // 
             // Column3
@@ -89,6 +92,7 @@ namespace ProductManagement
             this.Column3.HeaderText = "Satış tutarı";
             this.Column3.MinimumWidth = 10;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Width = 200;
             // 
             // Column4
@@ -96,6 +100,7 @@ namespace ProductManagement
             this.Column4.HeaderText = "Satışdan qalan xeyir";
             this.Column4.MinimumWidth = 10;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 200;
             // 
             // label2
@@ -121,6 +126,8 @@ namespace ProductManagement
             this.dailyReports.RowTemplate.Height = 33;
             this.dailyReports.Size = new System.Drawing.Size(885, 275);
             this.dailyReports.TabIndex = 1;
+            this.dailyReports.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dailyReports_CellBeginEdit);
+            this.dailyReports.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dailyReports_CellEndEdit);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -167,7 +174,7 @@ namespace ProductManagement
             this.Name = "ReportForm";
             this.Text = "Hesabat";
             this.Activated += new System.EventHandler(this.ReportForm_Activated);
-            this.Load += new System.EventHandler(this.ReportForm_Load);
+            this.Load += new System.EventHandler(this.ReportForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.monthlyReports)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dailyReports)).EndInit();
             this.ResumeLayout(false);

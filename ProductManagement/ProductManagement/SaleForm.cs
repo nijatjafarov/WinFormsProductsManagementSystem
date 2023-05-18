@@ -104,6 +104,15 @@ namespace ProductManagement
             }
 
             amount.Text = total.ToString();
+
+            if (totalBenefit < 0)
+            {
+                benefit.ForeColor = Color.FromArgb(255, 0, 0);
+            }
+            else
+            {
+                benefit.ForeColor = Color.FromArgb(0, 255, 0);
+            }
             benefit.Text = totalBenefit.ToString();
 
             confirmButton.Enabled = true;

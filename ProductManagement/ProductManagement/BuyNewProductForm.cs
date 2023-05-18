@@ -61,9 +61,9 @@ namespace ProductManagement
                             product.ProductName = productNameBox.Text;
                             product.SaleOrRent = saleRentBox.Text;
                             product.MeasurementUnit = measureTypeBox.Text;
-                            product.Measure = measure;
-                            product.BuyingPrice = buyingPrice;
-                            product.SalePrice = salePrice;
+                            product.Measure = Math.Round(measure,2);
+                            product.BuyingPrice = Math.Round(buyingPrice, 2);
+                            product.SalePrice = Math.Round(salePrice, 2);
 
                             db.SaveChanges();
                             MessageBox.Show("Dəyişiklər qeyd olundu!");
@@ -92,9 +92,9 @@ namespace ProductManagement
                                     ProductName = productNameBox.Text,
                                     SaleOrRent = saleRentBox.Text,
                                     MeasurementUnit = measureTypeBox.Text,
-                                    Measure = measure,
-                                    BuyingPrice = buyingPrice,
-                                    SalePrice = salePrice
+                                    Measure = Math.Round(measure, 2),
+                                    BuyingPrice = Math.Round(buyingPrice, 2),
+                                    SalePrice = Math.Round(salePrice, 2)
                                 };
 
                                 Report report = db.Reports.Where(r => r.Date == date).FirstOrDefault();
@@ -106,13 +106,13 @@ namespace ProductManagement
                                     report.Date = date;
                                     report.Benefit = 0;
                                     report.SaleAmount = 0;
-                                    report.BuyAmount = buyingPrice * measure;
+                                    report.BuyAmount = Math.Round(buyingPrice, 2) * Math.Round(measure, 2);
 
                                     db.Reports.Add(report);
                                 }
                                 else
                                 {
-                                    report.BuyAmount += buyingPrice * measure;
+                                    report.BuyAmount += Math.Round(buyingPrice, 2) * Math.Round(measure, 2);
                                 }
 
                                 db.Products.Add(product);

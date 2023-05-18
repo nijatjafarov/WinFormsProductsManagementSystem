@@ -47,6 +47,7 @@ namespace ProductManagement
             this.label3 = new System.Windows.Forms.Label();
             this.productTableAdapter = new ProductManagement.ProductsDataSetTableAdapters.ProductTableAdapter();
             this.deleteProducts = new System.Windows.Forms.Button();
+            this.backUpButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataSet)).BeginInit();
@@ -54,7 +55,7 @@ namespace ProductManagement
             // 
             // reportButton
             // 
-            this.reportButton.Location = new System.Drawing.Point(865, 84);
+            this.reportButton.Location = new System.Drawing.Point(923, 84);
             this.reportButton.Name = "reportButton";
             this.reportButton.Size = new System.Drawing.Size(121, 46);
             this.reportButton.TabIndex = 2;
@@ -64,7 +65,7 @@ namespace ProductManagement
             // 
             // saleButton
             // 
-            this.saleButton.Location = new System.Drawing.Point(1052, 84);
+            this.saleButton.Location = new System.Drawing.Point(1080, 84);
             this.saleButton.Name = "saleButton";
             this.saleButton.Size = new System.Drawing.Size(121, 46);
             this.saleButton.TabIndex = 2;
@@ -192,7 +193,7 @@ namespace ProductManagement
             // deleteProducts
             // 
             this.deleteProducts.Enabled = false;
-            this.deleteProducts.Location = new System.Drawing.Point(552, 84);
+            this.deleteProducts.Location = new System.Drawing.Point(642, 84);
             this.deleteProducts.Name = "deleteProducts";
             this.deleteProducts.Size = new System.Drawing.Size(248, 46);
             this.deleteProducts.TabIndex = 2;
@@ -200,12 +201,23 @@ namespace ProductManagement
             this.deleteProducts.UseVisualStyleBackColor = true;
             this.deleteProducts.Click += new System.EventHandler(this.deleteProducts_Click);
             // 
+            // backUpButton
+            // 
+            this.backUpButton.Location = new System.Drawing.Point(435, 84);
+            this.backUpButton.Name = "backUpButton";
+            this.backUpButton.Size = new System.Drawing.Size(162, 46);
+            this.backUpButton.TabIndex = 7;
+            this.backUpButton.Text = "Nüsxələmə";
+            this.backUpButton.UseVisualStyleBackColor = true;
+            this.backUpButton.Click += new System.EventHandler(this.backUpButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1435, 884);
+            this.Controls.Add(this.backUpButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.productList);
             this.Controls.Add(this.searchBox);
@@ -246,6 +258,7 @@ namespace ProductManagement
         private System.Windows.Forms.DataGridViewTextBoxColumn buyingPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn salePriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button deleteProducts;
+        private System.Windows.Forms.Button backUpButton;
     }
 }
 

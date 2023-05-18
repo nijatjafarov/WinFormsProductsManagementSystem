@@ -20,10 +20,45 @@ namespace ProductManagement
 
         private void ReportForm_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void ReportForm_Activated(object sender, EventArgs e)
+        {
+            
+        }
+
+        public int day;
+        
+
+        private void dailyReports_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dailyReports.Rows[dailyReports.SelectedCells[0].RowIndex];
+            Report report;
+            day = int.Parse(row.Cells[0].Value.ToString());
+
+            DateTime date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, day);
+            using (DatabaseEntities db = new DatabaseEntities())
+            {
+                report = db.Reports.Where(r => r.Date == date).FirstOrDefault();
+            }
+            LoginForm loginForm = new LoginForm(report, row);
+            loginForm.Show();
+        }
+
+        private void dailyReports_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            day = int.Parse(dailyReports.Rows[dailyReports.SelectedCells[0].RowIndex].Cells[0].Value.ToString());
+        }
+
+        private void ReportForm_Load_1(object sender, EventArgs e)
+        {
+            this.Size = new Size(1054 / 2, 918 / 2);
+
             double[] monthlySales = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             double[] monthlyBuyes = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             double[] monthlyBenefits = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            string[] months = { "Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", 
+            string[] months = { "Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul",
                 "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr" };
             using (DatabaseEntities db = new DatabaseEntities())
             {
@@ -129,12 +164,7 @@ namespace ProductManagement
 
                 monthlyReports.Rows.Add(monthlyRow);
             }
-            
-        }
 
-        private void ReportForm_Activated(object sender, EventArgs e)
-        {
-            this.Size = new Size(1054 / 2, 918 / 2);
         }
     }
 }
