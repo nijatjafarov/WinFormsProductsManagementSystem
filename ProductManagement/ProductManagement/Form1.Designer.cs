@@ -37,7 +37,6 @@ namespace ProductManagement
             this.searchBox = new System.Windows.Forms.TextBox();
             this.productList = new System.Windows.Forms.DataGridView();
             this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleOrRentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.measurementUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.measureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buyingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,10 +93,10 @@ namespace ProductManagement
             // productList
             // 
             this.productList.AutoGenerateColumns = false;
+            this.productList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productNameDataGridViewTextBoxColumn,
-            this.saleOrRentDataGridViewTextBoxColumn,
             this.measurementUnitDataGridViewTextBoxColumn,
             this.measureDataGridViewTextBoxColumn,
             this.buyingPriceDataGridViewTextBoxColumn,
@@ -106,7 +105,7 @@ namespace ProductManagement
             this.productList.Location = new System.Drawing.Point(76, 181);
             this.productList.Name = "productList";
             this.productList.ReadOnly = true;
-            this.productList.RowHeadersWidth = 82;
+            this.productList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.productList.RowTemplate.Height = 33;
             this.productList.Size = new System.Drawing.Size(1283, 629);
             this.productList.TabIndex = 4;
@@ -120,16 +119,6 @@ namespace ProductManagement
             this.productNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
             this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productNameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // saleOrRentDataGridViewTextBoxColumn
-            // 
-            this.saleOrRentDataGridViewTextBoxColumn.DataPropertyName = "SaleOrRent";
-            this.saleOrRentDataGridViewTextBoxColumn.HeaderText = "Satış/İcarə";
-            this.saleOrRentDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.saleOrRentDataGridViewTextBoxColumn.Name = "saleOrRentDataGridViewTextBoxColumn";
-            this.saleOrRentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleOrRentDataGridViewTextBoxColumn.Width = 200;
             // 
             // measurementUnitDataGridViewTextBoxColumn
             // 
@@ -138,7 +127,6 @@ namespace ProductManagement
             this.measurementUnitDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.measurementUnitDataGridViewTextBoxColumn.Name = "measurementUnitDataGridViewTextBoxColumn";
             this.measurementUnitDataGridViewTextBoxColumn.ReadOnly = true;
-            this.measurementUnitDataGridViewTextBoxColumn.Width = 200;
             // 
             // measureDataGridViewTextBoxColumn
             // 
@@ -147,7 +135,6 @@ namespace ProductManagement
             this.measureDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.measureDataGridViewTextBoxColumn.Name = "measureDataGridViewTextBoxColumn";
             this.measureDataGridViewTextBoxColumn.ReadOnly = true;
-            this.measureDataGridViewTextBoxColumn.Width = 200;
             // 
             // buyingPriceDataGridViewTextBoxColumn
             // 
@@ -156,7 +143,6 @@ namespace ProductManagement
             this.buyingPriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.buyingPriceDataGridViewTextBoxColumn.Name = "buyingPriceDataGridViewTextBoxColumn";
             this.buyingPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyingPriceDataGridViewTextBoxColumn.Width = 200;
             // 
             // salePriceDataGridViewTextBoxColumn
             // 
@@ -165,7 +151,6 @@ namespace ProductManagement
             this.salePriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
             this.salePriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.salePriceDataGridViewTextBoxColumn.Width = 200;
             // 
             // productBindingSource
             // 
@@ -251,14 +236,13 @@ namespace ProductManagement
         private ProductsDataSet productsDataSet;
         private System.Windows.Forms.BindingSource productBindingSource;
         private ProductsDataSetTableAdapters.ProductTableAdapter productTableAdapter;
+        private System.Windows.Forms.Button deleteProducts;
+        private System.Windows.Forms.Button backUpButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn saleOrRentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn measurementUnitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn measureDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn buyingPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn salePriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button deleteProducts;
-        private System.Windows.Forms.Button backUpButton;
     }
 }
 

@@ -355,14 +355,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ProductManagement.exe" size="217600">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ProductManagement.exe" size="217088">
       <assemblyIdentity name="ProductManagement" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>63QOPQ1vv7sC6xD7H/w661Q9Imp2H3lU2hEPb2k5/iI=</dsig:DigestValue>
+        <dsig:DigestValue>kxDtfFmdtGgbl22YDoUBd48y7rmzSX7/sJOMSDOpAzU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -621,13 +621,13 @@
       <dsig:DigestValue>gyVUaWGbZunCqdIRcYc6hisSWN8GD00gIpiYPGGOd+A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ProductManagement.exe.config" size="4727">
+  <file name="ProductManagement.exe.config" size="4943">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>f2gob4gdibg0kNSumQspSOzApIDS+Xl3DVs0Q1bXcp0=</dsig:DigestValue>
+      <dsig:DigestValue>mWLmezMzniYewFvMyB+V1uE1JadIWxfX8XdnCYJx6R0=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

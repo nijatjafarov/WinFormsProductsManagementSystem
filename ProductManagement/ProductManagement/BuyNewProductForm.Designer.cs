@@ -35,8 +35,6 @@ namespace ProductManagement
             this.measureTypeBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.saleRentBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.buyPriceBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -81,7 +79,7 @@ namespace ProductManagement
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(364, 158);
+            this.label2.Location = new System.Drawing.Point(63, 160);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(182, 25);
             this.label2.TabIndex = 1;
@@ -95,26 +93,6 @@ namespace ProductManagement
             this.label3.Size = new System.Drawing.Size(215, 25);
             this.label3.TabIndex = 1;
             this.label3.Text = "Məhsulun ölçü vahidi";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 158);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 25);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Satış/İcarə";
-            // 
-            // saleRentBox
-            // 
-            this.saleRentBox.FormattingEnabled = true;
-            this.saleRentBox.Items.AddRange(new object[] {
-            "Satış",
-            "İcarə"});
-            this.saleRentBox.Location = new System.Drawing.Point(68, 201);
-            this.saleRentBox.Name = "saleRentBox";
-            this.saleRentBox.Size = new System.Drawing.Size(197, 33);
-            this.saleRentBox.TabIndex = 3;
             // 
             // label5
             // 
@@ -143,9 +121,9 @@ namespace ProductManagement
             // 
             // measureBox
             // 
-            this.measureBox.Location = new System.Drawing.Point(369, 201);
+            this.measureBox.Location = new System.Drawing.Point(68, 201);
             this.measureBox.Name = "measureBox";
-            this.measureBox.Size = new System.Drawing.Size(197, 31);
+            this.measureBox.Size = new System.Drawing.Size(498, 31);
             this.measureBox.TabIndex = 0;
             // 
             // salePriceBox
@@ -171,10 +149,8 @@ namespace ProductManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 509);
             this.Controls.Add(this.confirmButton);
-            this.Controls.Add(this.saleRentBox);
             this.Controls.Add(this.measureTypeBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
@@ -201,8 +177,6 @@ namespace ProductManagement
         private System.Windows.Forms.ComboBox measureTypeBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox saleRentBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox buyPriceBox;
         private System.Windows.Forms.Label label6;

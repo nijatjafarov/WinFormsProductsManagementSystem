@@ -46,7 +46,6 @@ namespace ProductManagement
                 float.TryParse(buyPriceBox.Text, out buyingPrice) &&
                 float.TryParse(salePriceBox.Text, out salePrice) &&
                 productNameBox.Text != "" &&
-                saleRentBox.Text != "" &&
                 measureTypeBox.Text != "")
             {
                 if (id != 0)
@@ -59,7 +58,7 @@ namespace ProductManagement
                         {
                             Product product = db.Products.Find(id);
                             product.ProductName = productNameBox.Text;
-                            product.SaleOrRent = saleRentBox.Text;
+                            product.SaleOrRent = "Satış";
                             product.MeasurementUnit = measureTypeBox.Text;
                             product.Measure = Math.Round(measure,2);
                             product.BuyingPrice = Math.Round(buyingPrice, 2);
@@ -90,7 +89,7 @@ namespace ProductManagement
                                 Product product = new Product()
                                 {
                                     ProductName = productNameBox.Text,
-                                    SaleOrRent = saleRentBox.Text,
+                                    SaleOrRent = "Satış",
                                     MeasurementUnit = measureTypeBox.Text,
                                     Measure = Math.Round(measure, 2),
                                     BuyingPrice = Math.Round(buyingPrice, 2),
@@ -139,11 +138,10 @@ namespace ProductManagement
             if (row != null)
             {
                 productNameBox.Text = row.Cells[0].Value.ToString();
-                saleRentBox.Text = row.Cells[1].Value.ToString();
-                measureTypeBox.Text = row.Cells[2].Value.ToString();
-                measureBox.Text = row.Cells[3].Value.ToString();
-                buyPriceBox.Text = row.Cells[4].Value.ToString();
-                salePriceBox.Text = row.Cells[5].Value.ToString();
+                measureTypeBox.Text = row.Cells[1].Value.ToString();
+                measureBox.Text = row.Cells[2].Value.ToString();
+                buyPriceBox.Text = row.Cells[3].Value.ToString();
+                salePriceBox.Text = row.Cells[4].Value.ToString();
             }
         }
     }
