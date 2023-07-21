@@ -362,7 +362,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kxDtfFmdtGgbl22YDoUBd48y7rmzSX7/sJOMSDOpAzU=</dsig:DigestValue>
+        <dsig:DigestValue>mu/gILo20Zc182d9Pa4BmXhuMaXzvqovpAkf1p/+N6A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -621,13 +621,13 @@
       <dsig:DigestValue>gyVUaWGbZunCqdIRcYc6hisSWN8GD00gIpiYPGGOd+A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ProductManagement.exe.config" size="4943">
+  <file name="ProductManagement.exe.config" size="5140">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>mWLmezMzniYewFvMyB+V1uE1JadIWxfX8XdnCYJx6R0=</dsig:DigestValue>
+      <dsig:DigestValue>k9BSX7JNnKNs+ibs53sc+Bf9/aZS/NVvtewpC5BUyVc=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

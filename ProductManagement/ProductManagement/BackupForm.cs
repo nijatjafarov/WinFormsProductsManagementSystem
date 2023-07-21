@@ -10,7 +10,7 @@ namespace ProductManagement
     public partial class BackupForm : Form
     {
 
-        string connectionString = ConfigurationManager.ConnectionStrings["DatabaseEntities"].ConnectionString;
+        string connectionString = ConfigurationManager.ConnectionStrings["BackUpEntities"].ConnectionString;
         string[] connectionStringParts;
 
         public BackupForm()
